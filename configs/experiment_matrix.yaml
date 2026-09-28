@@ -1,0 +1,59 @@
+shared:
+  input_size: [1024, 1024]
+  max_iterations: 20000
+  checkpoint_rule: final_iteration_20000
+
+reported_protocols:
+  factorial_ablation:
+    seed: 0
+  training_seed_stability:
+    experiment: full
+    seeds: [0, 1, 3407]
+  internal_component_ablation:
+    seed: 0
+
+experiments:
+  baseline:
+    use_ca_mkir: false
+    use_sae_d2t: false
+    use_bwr_bag: false
+  ca_mkir:
+    use_ca_mkir: true
+    use_sae_d2t: false
+    use_bwr_bag: false
+  sae_d2t:
+    use_ca_mkir: false
+    use_sae_d2t: true
+    use_bwr_bag: false
+  bwr_bag:
+    use_ca_mkir: false
+    use_sae_d2t: false
+    use_bwr_bag: true
+  ca_mkir_sae_d2t:
+    use_ca_mkir: true
+    use_sae_d2t: true
+    use_bwr_bag: false
+  ca_mkir_bwr_bag:
+    use_ca_mkir: true
+    use_sae_d2t: false
+    use_bwr_bag: true
+  sae_d2t_bwr_bag:
+    use_ca_mkir: false
+    use_sae_d2t: true
+    use_bwr_bag: true
+  full:
+    use_ca_mkir: true
+    use_sae_d2t: true
+    use_bwr_bag: true
+
+internal_ablations:
+  ca_mkir_without_ca:
+    parent: ca_mkir
+    use_ca: false
+  sae_d2t_without_mbcr:
+    parent: sae_d2t
+    use_mbcr: false
+  bwr_bag_without_window_attention:
+    parent: bwr_bag
+    use_window_attention: false
+
