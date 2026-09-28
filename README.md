@@ -38,7 +38,7 @@ checkpoints/
   agri_pidnet_s.pth
 ```
 
-## Usage / Reproduction
+## Usage
 
 Run all commands from the repository root.
 
